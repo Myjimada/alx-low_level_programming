@@ -1,5 +1,7 @@
 #!/bin/bash
-#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
 
 /**
  * main - Entry point
@@ -8,6 +10,7 @@
  */
 int main(void)
 {
-    write(2,"and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59 );
-    return (1);
+    const char *message = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+    write(STDERR_FILENO, message, strlen(message));
+    return 1;
 }
